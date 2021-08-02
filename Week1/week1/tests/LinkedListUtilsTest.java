@@ -7,6 +7,7 @@ import week1.LinkedListUtils;
 import java.util.LinkedList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class LinkedListUtilsTest{
     @Test
@@ -30,6 +31,27 @@ public class LinkedListUtilsTest{
 
     @Test
     public void removeMaxValuesTest(){
+        LinkedList<String> li = new LinkedList<>();
+        //[z,q,d,s,b,a,z,q,q,s] - 2
+        li.add("z"); li.add("a"); li.add("x"); li.add("w"); li.add("z"); li.add("i"); li.add("z");
+        li.add("u"); li.add("z"); li.add("a");
 
+        LinkedListUtils.removeMaximumValues(li, 1);
+        System.out.println(li);
+    }
+    @Test
+    public void subSequenceTest(){
+        LinkedList<Integer> li = new LinkedList<>();
+        li.add(1); li.add(2); li.add(1); li.add(2); li.add(6); li.add(5); li.add(9);
+
+        LinkedList<Integer> l1 = new LinkedList<>();
+        l1.add(9);
+
+        boolean result = LinkedListUtils.containsSubsequence(li,l1);
+        assertFalse(!result);
+        LinkedList<Integer> l2 = new LinkedList<>();
+        l2.add(2); l2.add(1); l2.add(2);
+        result = LinkedListUtils.containsSubsequence(li,l2);
+        assert result == true;
     }
 }
